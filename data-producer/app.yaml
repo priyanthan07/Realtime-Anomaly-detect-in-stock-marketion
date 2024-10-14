@@ -1,0 +1,10 @@
+name: data-producer
+language: Python
+variables:
+  - name: output
+    inputType: OutputTopic
+    defaultValue: stock-data
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py

@@ -1,0 +1,14 @@
+name: anomaly-detector
+language: Python
+variables:
+  - name: input
+    inputType: InputTopic
+    defaultValue: stock-data
+    required: false
+  - name: output
+    inputType: OutputTopic
+    defaultValue: anomalies
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py

@@ -1,0 +1,10 @@
+name: Dashboard
+language: Python
+variables:
+  - name: input
+    inputType: InputTopic
+    defaultValue: anomalies
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: streamlit_file.py
