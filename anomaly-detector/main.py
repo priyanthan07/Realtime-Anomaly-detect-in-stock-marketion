@@ -14,11 +14,11 @@ app = Application(consumer_group="transformation-v1", auto_offset_reset="earlies
 input_topic = app.topic(os.environ["input"])
 output_topic = app.topic(os.environ["output"])
 
-high_volumn_threshold = defaultdict(lambda: 20000)
+high_volumn_threshold = defaultdict(lambda: 15000)
 fit_prices = []
 is_fitted = False
 
-isolation_forest = IsolationForest(contamination=0.01, n_estimators=1000)
+isolation_forest = IsolationForest(contamination=0.02, n_estimators=2000)
 
 
 def high_volumn_rule(trade_data):

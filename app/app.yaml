@@ -1,0 +1,11 @@
+name: app
+language: Python
+variables:
+  - name: input
+    inputType: InputTopic
+    description: Name of the input topic to listen to.
+    defaultValue: anomalies
+    required: true
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: streamlit_file.py
