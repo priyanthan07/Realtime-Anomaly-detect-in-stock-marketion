@@ -1,5 +1,6 @@
 import threading
 import streamlit as st
+import pandas as pd
 import time
 import threading
 from data_queue import DataQueue
@@ -107,7 +108,12 @@ while True:
 
     # If parameters are selected, display the charts
     if parameter1 and parameter2:
-        df = queue.get(conid)  # Make sure this is non-blocking or handled in a separate thread
+        data = queue.get(conid)  # Fetch the data
+        df = pd.json_normalize(data)
+
+        # Check for missing values and fill with None if necessary
+        df.fillna(value=0, inplace=True)
+        
         with placeholder_col1:
             st.line_chart(df, x="ts_event", y=[parameter1], height=300)
         with placeholder_col2:
